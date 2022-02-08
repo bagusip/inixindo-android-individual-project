@@ -25,6 +25,9 @@ import id.bagusip.inixindoprojectindividu.databinding.ActivityMainBinding;
 public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
     private ActionBarDrawerToggle toggle;
+    private OnBackPressedListener onBackPressedListener;
+
+
     Toolbar toolbar;
 
 
@@ -73,6 +76,12 @@ public class MainActivity extends AppCompatActivity {
                         binding.drawer.closeDrawer(GravityCompat.START);
                         callFragment(fragment);
                         break;
+                    case R.id.nav_peserta:
+                        fragment = new PesertaFragment();
+                        getSupportActionBar().setTitle("Peserta");
+                        binding.drawer.closeDrawer(GravityCompat.START);
+                        callFragment(fragment);
+                        break;
                 }
                 return true;
             }
@@ -83,6 +92,8 @@ public class MainActivity extends AppCompatActivity {
         navigationView.addHeaderView(headerView);
 
     }
+
+
 
     private void callFragment(Fragment fragment) {
         FragmentManager manager = getSupportFragmentManager();
@@ -95,5 +106,32 @@ public class MainActivity extends AppCompatActivity {
         //menunya bergantian
         transaction.addToBackStack(null);
         transaction.commit();
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (onBackPressedListener != null) {
+            getSupportActionBar().setTitle("Home Fragment");
+            binding.navView.setCheckedItem(R.id.nav_home);
+            onBackPressedListener.doBack();
+            binding.drawer.closeDrawer(GravityCompat.START);
+        } else if (onBackPressedListener == null) {
+            finish();
+            super.onBackPressed();
+        }
+    }
+
+    public interface OnBackPressedListener {
+        void doBack();
+    }
+
+    public void setOnBackPressedListener(OnBackPressedListener onBackPressedListener) {
+        this.onBackPressedListener = onBackPressedListener;
+    }
+
+    @Override
+    protected void onDestroy() {
+        onBackPressedListener = null;
+        super.onDestroy();
     }
 }

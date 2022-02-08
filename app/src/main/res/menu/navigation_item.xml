@@ -18,6 +18,21 @@
             android:icon="@drawable/materi"
             android:title="Materi" />
 
+        <item
+            android:id="@+id/nav_kelas"
+            android:icon="@drawable/materi"
+            android:title="Kelas" />
+
+        <item
+            android:id="@+id/nav_peserta"
+            android:icon="@drawable/materi"
+            android:title="Peserta" />
+
+        <item
+            android:id="@+id/nav_detail_kelas"
+            android:icon="@drawable/materi"
+            android:title="Detail Kelas" />
+
 
     </group>
 </menu>
