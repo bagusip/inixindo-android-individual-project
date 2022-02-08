@@ -13,6 +13,9 @@
         android:theme="@style/Theme.InixindoProjectIndividu"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".TambahPeserta"
+            android:exported="false" />
+        <activity
             android:name=".PesertaDetail"
             android:exported="false" />
         <activity

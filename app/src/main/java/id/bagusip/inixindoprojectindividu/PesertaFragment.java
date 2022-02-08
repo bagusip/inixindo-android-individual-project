@@ -162,13 +162,6 @@ public class PesertaFragment extends Fragment implements MainActivity.OnBackPres
         startActivity(myIntent);
     }
 
-
-
-    @Override
-    public void onClick(View view) {
-//        startActivity(new Intent(view.getContext(), TambahDataActivity.class));
-    }
-
     @Override
     public void doBack() {
         FragmentManager manager = getFragmentManager();
@@ -178,4 +171,12 @@ public class PesertaFragment extends Fragment implements MainActivity.OnBackPres
         transaction.addToBackStack(null);
         transaction.commit();
     }
+
+    @Override
+    public void onClick(View v) {
+        // penanganan FAB
+        startActivity(new Intent(view.getContext(), TambahPeserta.class));
+    }
+
+
 }
