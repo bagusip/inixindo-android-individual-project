@@ -4,16 +4,24 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.Spinner;
+
+import com.google.android.material.textfield.TextInputLayout;
 
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link HomeFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment implements View.OnClickListener{
+
+    Spinner spinner;
+    EditText home_edit_name, home_edit_email;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -49,6 +57,8 @@ public class HomeFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
@@ -58,7 +68,23 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        home_edit_name.findViewById(R.id.home_edit_name);
+        home_edit_email.findViewById(R.id.home_edit_email);
+
+        String nama = home_edit_name.getText().toString();
+        String email = home_edit_email.getText().toString();
+
+        View view = inflater.inflate(R.layout.fragment_home, container, false);
+
+
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false);
+        return view;
+    }
+
+    @Override
+    public void onClick(View view) {
+
     }
 }
