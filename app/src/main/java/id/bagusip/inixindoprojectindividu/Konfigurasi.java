@@ -15,7 +15,7 @@ public class Konfigurasi {
 
     // flag JSON
     public static final String TAG_JSON_ARRAY = "result";
-    public static final String TAG_JSON_ID = "id";
+    public static final String TAG_JSON_ID = "id_pst";
     public static final String TAG_JSON_NAMA ="name";
     public static final String TAG_JSON_JABATAN ="desg";
     public static final String TAG_JSON_GAJI ="salary";

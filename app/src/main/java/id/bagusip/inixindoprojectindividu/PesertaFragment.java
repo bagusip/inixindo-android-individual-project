@@ -18,6 +18,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListAdapter;
+import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
 import org.json.JSONArray;
@@ -35,6 +36,7 @@ public class PesertaFragment extends Fragment implements MainActivity.OnBackPres
     private View view;
     private String JSON_STRING;
     private ProgressDialog loading;
+    private ListView list_view;
 
     public PesertaFragment() {
         // Required empty public constructor
@@ -60,8 +62,15 @@ public class PesertaFragment extends Fragment implements MainActivity.OnBackPres
         // penanganan List View
         pesertaBinding.listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            public void onItemClick(AdapterView<?> parent, View view, int i, long l) {
                 // membuka detail
+                Log.d("test","clicked");
+                Intent myIntent = new Intent(getActivity(), PesertaDetail.class);
+                HashMap<String, String> map = (HashMap) parent.getItemAtPosition(i);
+                String id_peserta = map.get(Konfigurasi.TAG_JSON_ID).toString();
+                myIntent.putExtra(Konfigurasi.PGW_ID, id_peserta);
+                Log.d("test",id_peserta);
+                startActivity(myIntent);
             }
         });
 
@@ -145,11 +154,12 @@ public class PesertaFragment extends Fragment implements MainActivity.OnBackPres
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
         // Ketika salah satu list dipilih
         // detail : id, name, Desg, Salary
-//        Intent myIntent = new Intent(PesertaFragment.this, PesertaDetail.class);
-//        HashMap<String, String> map = (HashMap) adapterView.getItemAtPosition(i);
-//        String pgwId = map.get(Konfigurasi.TAG_JSON_ID).toString();
-//        myIntent.putExtra(Konfigurasi.PGW_ID, pgwId);
-//        startActivity(myIntent);
+        Log.d("test","clicked");
+        Intent myIntent = new Intent(getActivity(), PesertaDetail.class);
+        HashMap<String, String> map = (HashMap) adapterView.getItemAtPosition(i);
+        String pgwId = map.get(Konfigurasi.TAG_JSON_ID).toString();
+        myIntent.putExtra(Konfigurasi.PGW_ID, pgwId);
+        startActivity(myIntent);
     }
 
 
