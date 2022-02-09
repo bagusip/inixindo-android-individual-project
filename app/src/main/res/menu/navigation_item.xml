@@ -1,40 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+
     <group android:id="@+id/group"
         android:checkableBehavior="single">
-
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/home"
             android:title="Home" />
-
-        <item
-            android:id="@+id/nav_peserta"
-            android:icon="@drawable/peserta"
-            android:title="Peserta" />
-
-        <item
-            android:id="@+id/nav_instruktur"
-            android:icon="@drawable/instruktur"
-            android:title="Instruktur" />
-
-        <item
-            android:id="@+id/nav_materi"
-            android:icon="@drawable/materi"
-            android:title="Materi" />
-
-        <item
-            android:id="@+id/nav_kelas"
-            android:icon="@drawable/materi"
-            android:title="Kelas" />
-
-
-
-        <item
-            android:id="@+id/nav_detail_kelas"
-            android:icon="@drawable/materi"
-            android:title="Detail Kelas" />
-
-
     </group>
+
+    <item
+        android:title="Menus">
+        <menu>
+            <item
+                android:id="@+id/nav_materi"
+                android:icon="@drawable/materi"
+                android:title="Materi" />
+            <item
+                android:id="@+id/nav_kelas"
+                android:icon="@drawable/materi"
+                android:title="Kelas" />
+            <item
+                android:id="@+id/nav_detail_kelas"
+                android:icon="@drawable/materi"
+                android:title="Detail Kelas" />
+            <item
+                android:id="@+id/nav_instruktur"
+                android:icon="@drawable/instruktur"
+                android:title="Instruktur" />
+            <item
+                android:id="@+id/nav_peserta"
+                android:icon="@drawable/peserta"
+                android:title="Peserta" />
+        </menu>
+    </item>
+
+
 </menu>

@@ -13,6 +13,9 @@
         android:theme="@style/Theme.InixindoProjectIndividu"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".KelasDetail"
+            android:exported="false" />
+        <activity
             android:name=".TambahMateri"
             android:exported="false" />
         <activity
