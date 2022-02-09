@@ -46,14 +46,16 @@
                 android:id="@+id/home_edit_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="text"/>
+                android:inputType="text"
+                android:hint="Masukan nama"/>
 
 
             <EditText
                 android:id="@+id/home_edit_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="text" />
+                android:inputType="text"
+                android:hint="Masukan e-mail"/>
 
 
         <com.google.android.material.textfield.TextInputLayout
@@ -76,10 +78,12 @@
                     android:textSize="18sp" />
 
                 <Spinner
-                    android:id="@+id/spinner2"
+                    android:id="@+id/home_spinner"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:entries="@array/home_gender"
+                    />
             </LinearLayout>
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -112,7 +116,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="60dp"
                         android:layout_weight="1"
-                        android:paddingLeft="150dp">
+                        android:paddingLeft="150dp"
+                        android:id="@+id/id_radioGroup">
 
                         <RadioButton
                             android:id="@+id/radioButton_ya"
@@ -120,7 +125,9 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Ya"
-                            android:textAlignment="center" />
+                            android:textAlignment="center"
+                            android:checked="true"
+                            />
 
                         <RadioButton
                             android:id="@+id/radioButton_tidak"
@@ -128,7 +135,8 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Tidak"
-                            android:textAlignment="center" />
+                            android:textAlignment="center"
+                            android:checked="false"/>
                     </RadioGroup>
 
                 </LinearLayout>
