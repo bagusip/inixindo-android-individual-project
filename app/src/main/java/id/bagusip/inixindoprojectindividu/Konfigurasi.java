@@ -1,8 +1,15 @@
 package id.bagusip.inixindoprojectindividu;
 
 public class Konfigurasi {
+    // PESERTA
+    public static final String PESERTA_URL_GET_ALL = "http://192.168.1.3/training/peserta/datas_peserta.php";
+    public static final String PESERTA_URL_GET_DETAIL = "http://192.168.1.3/training/peserta/detail_peserta.php?id_pst=";
+    public static final String PESERTA_URL_GET_ADD = "http://192.168.1.3/training/peserta/add_peserta.php";
+    public static final String PESERTA_URL_UPDATE = "http://192.168.1.3/training/peserta/update_peserta.php";
+    public static final String PESERTA_URL_DELETE =    "http://192.168.1.3/training/peserta/delete_peserta.php?id_pst=";
+
     // INSTRUKTUR
-    public static final String INSTRUKTUR_URL_GET_ALL = "http://192.168.1.3/training/peserta/datas_peserta.php";
+    public static final String INSTRUKTUR_URL_GET_ALL = "http://192.168.1.3/training/instruktur/view_instruktur.php";
     public static final String INSTRUKTUR_URL_GET_DETAIL = "http://192.168.1.3/training/peserta/detail_peserta.php?id_pst=";
     public static final String INSTRUKTUR_URL_GET_ADD = "http://192.168.1.3/training/peserta/add_peserta.php";
     public static final String INSTRUKTUR_URL_UPDATE = "http://192.168.1.3/training/peserta/update_peserta.php";

@@ -115,7 +115,7 @@
                         android:paddingLeft="150dp">
 
                         <RadioButton
-                            android:id="@+id/radioButton_no"
+                            android:id="@+id/radioButton_ya"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -123,7 +123,7 @@
                             android:textAlignment="center" />
 
                         <RadioButton
-                            android:id="@+id/radioButton_yes"
+                            android:id="@+id/radioButton_tidak"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"

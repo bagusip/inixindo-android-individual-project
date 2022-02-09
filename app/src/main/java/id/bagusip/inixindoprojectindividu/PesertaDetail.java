@@ -71,7 +71,7 @@ public class PesertaDetail extends AppCompatActivity implements View.OnClickList
             @Override
             protected String doInBackground(Void... voids) {
                 HttpHandler handler = new HttpHandler();
-                String result = handler.sendGetResponse(Konfigurasi.INSTRUKTUR_URL_GET_DETAIL, id_pst);
+                String result = handler.sendGetResponse(Konfigurasi.PESERTA_URL_GET_DETAIL, id_pst);
                 Log.d("result",result);
                 return result;
             }
@@ -145,7 +145,7 @@ public class PesertaDetail extends AppCompatActivity implements View.OnClickList
                 params.put("id_pst", id_pst);
 
                 HttpHandler handler = new HttpHandler();
-                String result = handler.sendPostRequest(Konfigurasi.INSTRUKTUR_URL_DELETE, params);
+                String result = handler.sendPostRequest(Konfigurasi.PESERTA_URL_DELETE, params);
                 Log.d("result",result);
                 return result;
             }
@@ -193,7 +193,7 @@ public class PesertaDetail extends AppCompatActivity implements View.OnClickList
                 peserta.put("instansi_pst", instansi_pst);
 
                 HttpHandler handler = new HttpHandler();
-                String result = handler.sendPostRequest(Konfigurasi.INSTRUKTUR_URL_UPDATE, peserta);
+                String result = handler.sendPostRequest(Konfigurasi.PESERTA_URL_UPDATE, peserta);
 
                 return result;
             }

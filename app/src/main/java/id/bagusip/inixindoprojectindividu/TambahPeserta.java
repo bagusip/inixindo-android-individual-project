@@ -83,7 +83,7 @@ public class TambahPeserta extends AppCompatActivity implements View.OnClickList
                 params.put("instansi_pst", instansi_pst);
                 HttpHandler handler = new HttpHandler();
                 // HttpHandler untuk kirim data pakai sendPostRequest
-                String result = handler.sendPostRequest(Konfigurasi.INSTRUKTUR_URL_GET_ADD, params);
+                String result = handler.sendPostRequest(Konfigurasi.PESERTA_URL_GET_ADD, params);
                 return result;
             }
 

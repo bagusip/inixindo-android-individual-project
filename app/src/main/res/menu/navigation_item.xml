@@ -9,6 +9,11 @@
             android:title="Home" />
 
         <item
+            android:id="@+id/nav_peserta"
+            android:icon="@drawable/peserta"
+            android:title="Peserta" />
+
+        <item
             android:id="@+id/nav_instruktur"
             android:icon="@drawable/instruktur"
             android:title="Instruktur" />
@@ -23,10 +28,7 @@
             android:icon="@drawable/materi"
             android:title="Kelas" />
 
-        <item
-            android:id="@+id/nav_peserta"
-            android:icon="@drawable/materi"
-            android:title="Peserta" />
+
 
         <item
             android:id="@+id/nav_detail_kelas"

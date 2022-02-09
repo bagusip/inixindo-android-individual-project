@@ -82,8 +82,6 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
 
         EditText layout_nama = (EditText) view.findViewById(R.id.home_edit_name);
         EditText layout_email = (EditText) view.findViewById(R.id.home_edit_email);
-//        EditText edit_nama = layout_nama.getEditText();
-//        EditText edit_email = layout_email.getEditText();
 
         button_save = view.findViewById(R.id.button_save);
 
