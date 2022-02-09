@@ -41,6 +41,7 @@ public class InstrukturDetail extends AppCompatActivity implements View.OnClickL
         id_ins = receiveIntent.getStringExtra(Konfigurasi.PGW_ID);
         edit_id_ins.setText(id_ins);
 
+
         Log.d("id_ins",id_ins);
         
         getJSON();
@@ -69,7 +70,7 @@ public class InstrukturDetail extends AppCompatActivity implements View.OnClickL
             protected String doInBackground(Void... voids) {
                 HttpHandler handler = new HttpHandler();
                 String result = handler.sendGetResponse(Konfigurasi.INSTRUKTUR_URL_GET_DETAIL, id_ins);
-                Log.d("result",result);
+                Log.d("result",id_ins);
                 return result;
             }
 
@@ -136,12 +137,8 @@ public class InstrukturDetail extends AppCompatActivity implements View.OnClickL
 
             @Override
             protected String doInBackground(Void... voids) {
-                HashMap<String, String> params = new HashMap<>();
-                params.put("id_ins", id_ins);
-
                 HttpHandler handler = new HttpHandler();
-                String result = handler.sendPostRequest(Konfigurasi.PESERTA_URL_DELETE, params);
-                Log.d("result",result);
+                String result = handler.sendGetResponse(Konfigurasi.INSTRUKTUR_URL_DELETE, id_ins);
                 return result;
             }
 
@@ -150,12 +147,12 @@ public class InstrukturDetail extends AppCompatActivity implements View.OnClickL
                 super.onPostExecute(s);
                 loading.dismiss();
                 Toast.makeText(InstrukturDetail.this,
-                        "pesan: "+s, Toast.LENGTH_SHORT).show();
+                        "pesan: "+s, Toast.LENGTH_LONG).show();
                 //redirect ke lihat data activity
 //                startActivity(new Intent(PesertaDetail.this,PesertaFragment.class));
                 startActivity(new Intent(InstrukturDetail.this,MainActivity.class));
-
             }
+
         }
         DeleteDataPeserta deleteDataPeserta = new DeleteDataPeserta();
         deleteDataPeserta.execute();
@@ -180,14 +177,15 @@ public class InstrukturDetail extends AppCompatActivity implements View.OnClickL
 
                 @Override
                 protected String doInBackground(Void... voids) {
-                    HashMap<String, String> peserta = new HashMap<>();
-                    peserta.put("id_ins", id_ins);
-                    peserta.put("nama_ins", nama_ins);
-                    peserta.put("email_ins", email_ins);
-                    peserta.put("hp_ins", hp_ins);
+                    HashMap<String, String> instruktur = new HashMap<>();
+                    instruktur.put("id_ins", id_ins);
+                    instruktur.put("nama_ins", nama_ins);
+                    instruktur.put("email_ins", email_ins);
+                    instruktur.put("hp_ins", hp_ins);
 
                     HttpHandler handler = new HttpHandler();
-                    String result = handler.sendPostRequest(Konfigurasi.INSTRUKTUR_URL_UPDATE, peserta);
+                    String result = handler.sendPostRequest(Konfigurasi.INSTRUKTUR_URL_UPDATE, instruktur);
+                    Log.d("result",result);
 
                     return result;
                 }

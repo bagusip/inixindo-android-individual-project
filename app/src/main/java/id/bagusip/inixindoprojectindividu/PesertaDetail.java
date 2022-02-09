@@ -3,7 +3,9 @@ package id.bagusip.inixindoprojectindividu;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -128,6 +130,25 @@ public class PesertaDetail extends AppCompatActivity implements View.OnClickList
     }
 
     private void confirmDeleteDataPeserta() {
+        //Confirmation using alert dialog
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Menghapus Data");
+        builder.setMessage("Apakah anda yaking menhapus data ini?");
+        builder.setIcon(getResources().getDrawable(android.R.drawable.ic_delete));
+        builder.setCancelable(false);
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                deleteDataPeserta();
+            }
+        });
+        builder.setNegativeButton("Cancel",null);
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+
+
+    private void deleteDataPeserta() {
         class DeleteDataPeserta extends AsyncTask<Void, Void, String>{
             ProgressDialog loading;
 
@@ -141,12 +162,10 @@ public class PesertaDetail extends AppCompatActivity implements View.OnClickList
 
             @Override
             protected String doInBackground(Void... voids) {
-                HashMap<String, String> params = new HashMap<>();
-                params.put("id_pst", id_pst);
 
                 HttpHandler handler = new HttpHandler();
-                String result = handler.sendPostRequest(Konfigurasi.PESERTA_URL_DELETE, params);
-                Log.d("result",result);
+                String result = handler.sendGetResponse(Konfigurasi.PESERTA_URL_DELETE, id_pst);
+
                 return result;
             }
 
