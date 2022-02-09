@@ -10,10 +10,10 @@ public class Konfigurasi {
 
     // INSTRUKTUR
     public static final String INSTRUKTUR_URL_GET_ALL = "http://192.168.1.3/training/instruktur/view_instruktur.php";
-    public static final String INSTRUKTUR_URL_GET_DETAIL = "http://192.168.1.3/training/peserta/detail_peserta.php?id_pst=";
-    public static final String INSTRUKTUR_URL_GET_ADD = "http://192.168.1.3/training/peserta/add_peserta.php";
-    public static final String INSTRUKTUR_URL_UPDATE = "http://192.168.1.3/training/peserta/update_peserta.php";
-    public static final String INSTRUKTUR_URL_DELETE =    "http://192.168.1.3/training/peserta/delete_peserta.php?id_pst=";
+    public static final String INSTRUKTUR_URL_GET_DETAIL = "http://192.168.1.3/training/instruktur/detail_instruktur.php?id_ins=";
+    public static final String INSTRUKTUR_URL_GET_ADD = "http://192.168.1.3/training/instruktur/add_instruktur.php";
+    public static final String INSTRUKTUR_URL_UPDATE = "http://192.168.1.3/training/instruktur/update_instruktur.php";
+    public static final String INSTRUKTUR_URL_DELETE =    "http://192.168.1.3/training/instruktur/delete_instruktur.php?id_ins=";
 
     // key adn value JSON yang muncul di browser
     public static final String KEY_PGW_ID = "id";

@@ -13,6 +13,9 @@
         android:theme="@style/Theme.InixindoProjectIndividu"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".TambahInstruktur"
+            android:exported="false" />
+        <activity
             android:name=".InstrukturDetail"
             android:exported="false" />
         <activity

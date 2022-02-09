@@ -68,7 +68,7 @@ public class InstrukturFragment extends Fragment implements MainActivity.OnBackP
                 // membuka detail
                 Intent myIntent = new Intent(getActivity(), InstrukturDetail.class);
                 HashMap<String, String> map = (HashMap) parent.getItemAtPosition(i);
-                String id_peserta = map.get(Konfigurasi.TAG_JSON_ID).toString();
+                String id_peserta = map.get("id_ins").toString();
                 myIntent.putExtra(Konfigurasi.PGW_ID, id_peserta);
                 startActivity(myIntent);
             }
