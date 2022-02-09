@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    tools:context=".TambahPeserta">
+    tools:context=".TambahInstruktur">
 
 
     <EditText
@@ -34,24 +34,12 @@
         android:textStyle="bold" />
 
     <EditText
-        android:id="@+id/edit_hp_pst"
+        android:id="@+id/edit_hp_ins"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:ems="10"
         android:hint="Tuliskan nomor handphone"
-        android:inputType="textPersonName"
-        android:textColor="@color/inix3"
-        android:textSize="20sp"
-        android:textStyle="bold" />
-
-    <EditText
-        android:id="@+id/edit_email_pst"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:ems="10"
-        android:hint="Tuliskan e-mail"
         android:inputType="textPersonName"
         android:textColor="@color/inix3"
         android:textSize="20sp"

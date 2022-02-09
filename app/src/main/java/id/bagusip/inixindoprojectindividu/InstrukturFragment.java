@@ -150,7 +150,7 @@ public class InstrukturFragment extends Fragment implements MainActivity.OnBackP
 
     @Override
     public void onClick(View view) {
-//        startActivity(new Intent(view.getContext(), TambahPeserta.class));
+        startActivity(new Intent(view.getContext(), TambahInstruktur.class));
     }
 
     @Override
