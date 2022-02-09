@@ -12,9 +12,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
+
+import java.util.HashMap;
 
 public class InstrukturDetail extends AppCompatActivity implements View.OnClickListener {
 
@@ -32,7 +35,7 @@ public class InstrukturDetail extends AppCompatActivity implements View.OnClickL
         edit_email_ins = findViewById(R.id.edit_email_ins);
         edit_hp_ins = findViewById(R.id.edit_hp_ins);
         btn_update_instruktur = findViewById(R.id.btn_update_instruktur);
-        btn_update_instruktur = findViewById(R.id.btn_update_peserta);
+        btn_delete_instruktur = findViewById(R.id.btn_delete_instruktur);
 
         Intent receiveIntent = getIntent();
         id_ins = receiveIntent.getStringExtra(Konfigurasi.PGW_ID);
@@ -42,8 +45,8 @@ public class InstrukturDetail extends AppCompatActivity implements View.OnClickL
         
         getJSON();
         
-//        btn_update_instruktur.setOnClickListener(this);
-//        btn_delete_instruktur.setOnClickListener(this);
+        btn_update_instruktur.setOnClickListener(this);
+        btn_delete_instruktur.setOnClickListener(this);
         
 
     }
@@ -112,7 +115,7 @@ public class InstrukturDetail extends AppCompatActivity implements View.OnClickL
     @Override
     public void onClick(View view) {
         if (view == btn_update_instruktur){
-            updateDataPeserta();
+            updateDataInstruktur();
         }
         else if(view == btn_delete_instruktur){
             confirmDeleteDataPeserta();
@@ -120,8 +123,86 @@ public class InstrukturDetail extends AppCompatActivity implements View.OnClickL
     }
 
     private void confirmDeleteDataPeserta() {
+        class DeleteDataPeserta extends AsyncTask<Void, Void, String>{
+            ProgressDialog loading;
+
+            @Override
+            protected void onPreExecute() {
+                super.onPreExecute();
+                loading = ProgressDialog.show(InstrukturDetail.this,
+                        "Menghapus data","Harap tunggu",
+                        false, false);
+            }
+
+            @Override
+            protected String doInBackground(Void... voids) {
+                HashMap<String, String> params = new HashMap<>();
+                params.put("id_ins", id_ins);
+
+                HttpHandler handler = new HttpHandler();
+                String result = handler.sendPostRequest(Konfigurasi.PESERTA_URL_DELETE, params);
+                Log.d("result",result);
+                return result;
+            }
+
+            @Override
+            protected void onPostExecute(String s) {
+                super.onPostExecute(s);
+                loading.dismiss();
+                Toast.makeText(InstrukturDetail.this,
+                        "pesan: "+s, Toast.LENGTH_SHORT).show();
+                //redirect ke lihat data activity
+//                startActivity(new Intent(PesertaDetail.this,PesertaFragment.class));
+                startActivity(new Intent(InstrukturDetail.this,MainActivity.class));
+
+            }
+        }
+        DeleteDataPeserta deleteDataPeserta = new DeleteDataPeserta();
+        deleteDataPeserta.execute();
+
     }
 
-    private void updateDataPeserta() {
-    }
+    private void updateDataInstruktur() {
+        final String nama_ins = edit_nama_ins.getText().toString().trim();
+        final String email_ins = edit_email_ins.getText().toString().trim();
+        final String hp_ins = edit_hp_ins.getText().toString().trim();
+
+        class UpdateDataInstruktur extends AsyncTask<Void, Void, String>{
+                ProgressDialog loading;
+
+                @Override
+                protected void onPreExecute() {
+                    super.onPreExecute();
+                    loading = ProgressDialog.show(InstrukturDetail.this,
+                            "Mengubah Data", "Harap Tunggu",
+                            false, false);
+                }
+
+                @Override
+                protected String doInBackground(Void... voids) {
+                    HashMap<String, String> peserta = new HashMap<>();
+                    peserta.put("id_ins", id_ins);
+                    peserta.put("nama_ins", nama_ins);
+                    peserta.put("email_ins", email_ins);
+                    peserta.put("hp_ins", hp_ins);
+
+                    HttpHandler handler = new HttpHandler();
+                    String result = handler.sendPostRequest(Konfigurasi.INSTRUKTUR_URL_UPDATE, peserta);
+
+                    return result;
+                }
+
+                @Override
+                protected void onPostExecute(String s) {
+                    super.onPostExecute(s);
+                    loading.dismiss();
+                    Toast.makeText(InstrukturDetail.this,
+                            "pesan: "+s, Toast.LENGTH_SHORT).show();
+                    //redirect ke lihat data activity
+                    startActivity(new Intent(InstrukturDetail.this,MainActivity.class));
+                }
+            }
+            UpdateDataInstruktur updateDataInstruktur = new UpdateDataInstruktur();
+            updateDataInstruktur.execute();
+        }
 }

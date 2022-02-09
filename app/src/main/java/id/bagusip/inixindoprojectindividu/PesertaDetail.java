@@ -158,7 +158,7 @@ public class PesertaDetail extends AppCompatActivity implements View.OnClickList
                         "pesan: "+s, Toast.LENGTH_SHORT).show();
                 //redirect ke lihat data activity
 //                startActivity(new Intent(PesertaDetail.this,PesertaFragment.class));
-                startActivity(new Intent(PesertaDetail.this,PesertaFragment.class));
+                startActivity(new Intent(PesertaDetail.this,MainActivity.class));
 
             }
         }
@@ -205,7 +205,7 @@ public class PesertaDetail extends AppCompatActivity implements View.OnClickList
                 Toast.makeText(PesertaDetail.this,
                         "pesan: "+s, Toast.LENGTH_SHORT).show();
                 //redirect ke lihat data activity
-                startActivity(new Intent(PesertaDetail.this,PesertaFragment.class));
+                startActivity(new Intent(PesertaDetail.this,MainActivity.class));
             }
         }
         UpdateDataPeserta updateDataPeserta = new UpdateDataPeserta();

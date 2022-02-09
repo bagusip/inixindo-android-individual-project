@@ -58,7 +58,7 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="6dp"
             android:layout_weight="1"
-            android:text="UPDATE PEGAWAI" />
+            android:text="UPDATE INSTRUKTUR" />
 
         <Button
             android:id="@+id/btn_delete_instruktur"
@@ -66,6 +66,6 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="6dp"
             android:layout_weight="1"
-            android:text="DELETE PEGAWAI" />
+            android:text="DELETE INSTRUKTUR" />
     </LinearLayout>
 </LinearLayout>
