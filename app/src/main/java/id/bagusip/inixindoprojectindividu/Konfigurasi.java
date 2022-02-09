@@ -15,6 +15,13 @@ public class Konfigurasi {
     public static final String INSTRUKTUR_URL_UPDATE = "http://192.168.1.3/training/instruktur/update_instruktur.php";
     public static final String INSTRUKTUR_URL_DELETE =    "http://192.168.1.3/training/instruktur/delete_instruktur.php?id_ins=";
 
+    // MATERI
+    public static final String MATERI_URL_GET_ALL = "http://192.168.1.3/training/materi/datas_materi.php";
+    public static final String MATERI_URL_GET_DETAIL = "http://192.168.1.3/training/instruktur/detail_materi.php?id_mat=";
+    public static final String MATERI_URL_GET_ADD = "http://192.168.1.3/training/materi/add_materi.php";
+    public static final String MATERI_URL_UPDATE = "http://192.168.1.3/training/instruktur/update_materi.php";
+    public static final String MATERI_URL_DELETE =    "http://192.168.1.3/training/instruktur/delete_materi.php?id_mat=";
+
     // key adn value JSON yang muncul di browser
     public static final String KEY_PGW_ID = "id";
     public static final String KEY_PGW_NAMA = "name";
