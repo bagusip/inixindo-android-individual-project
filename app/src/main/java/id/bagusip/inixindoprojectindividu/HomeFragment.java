@@ -62,7 +62,6 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
                     res = "No";
                 }
 
-                Log.d("selected_text",res);
                 AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
                 builder.setTitle("Your Data");
                 builder.setMessage("Nama : " + nama +
