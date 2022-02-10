@@ -53,7 +53,7 @@ public class KelasFragment extends Fragment implements MainActivity.OnBackPresse
     private void initView() {
         // custom action bar
         ActionBar customActionBar = ((MainActivity) getActivity()).getSupportActionBar();
-        customActionBar.setTitle("Data Peserta");
+        customActionBar.setTitle("Data Kelas");
 
         // penanganan List View
         kelasBinding.listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -61,11 +61,11 @@ public class KelasFragment extends Fragment implements MainActivity.OnBackPresse
             public void onItemClick(AdapterView<?> parent, View view, int i, long l) {
                 // membuka detail
                 Log.d("test","clicked");
-                Intent myIntent = new Intent(getActivity(), PesertaDetail.class);
+                Intent myIntent = new Intent(getActivity(), KelasDetail.class);
                 HashMap<String, String> map = (HashMap) parent.getItemAtPosition(i);
-                String id_peserta = map.get(Konfigurasi.TAG_JSON_ID).toString();
-                myIntent.putExtra(Konfigurasi.PGW_ID, id_peserta);
-                Log.d("test",id_peserta);
+                String pgwId = map.get("id_kls").toString();
+                myIntent.putExtra(Konfigurasi.PGW_ID, pgwId);
+                Log.d("test",pgwId);
                 startActivity(myIntent);
             }
         });
@@ -118,16 +118,15 @@ public class KelasFragment extends Fragment implements MainActivity.OnBackPresse
 
             for (int i = 0; i < jsonArray.length(); i++) {
                 JSONObject object = jsonArray.getJSONObject(i);
-                String tgl_mulai_kls = object.getString("tgl_mulai_kls");
-                String tgl_akhir_kls = object.getString("tgl_akhir_kls");
-                String id_ins = object.getString("id_ins");
-                String id_mat = object.getString("id_mat");
+                String id_kls = object.getString("k.id_kls");
+                String nama_mat = object.getString("m.nama_mat");
+                String nama_ins = object.getString("i.nama_ins");
 
                 HashMap<String, String> kelas = new HashMap<>();
-                kelas.put("tgl_mulai_kls", tgl_mulai_kls);
-                kelas.put("tgl_akhir_kls", tgl_akhir_kls);
-                kelas.put("id_ins", id_ins);
-                kelas.put("id_mat", id_mat);
+                kelas.put("id_kls", id_kls);
+                kelas.put("nama_mat", nama_mat);
+                kelas.put("nama_ins", nama_ins);
+
 
                 list.add(kelas);
             }
@@ -138,8 +137,8 @@ public class KelasFragment extends Fragment implements MainActivity.OnBackPresse
         // adapter untuk meletakkan array list kedalam list view
         ListAdapter adapter = new SimpleAdapter(
                 view.getContext(), list, R.layout.activity_list_item_kelas,
-                new String[]{"tgl_mulai_kls", "tgl_akhir_kls"},
-                new int[]{R.id.txt_id, R.id.txt_name}
+                new String[]{"id_kls","nama_mat", "nama_ins"},
+                new int[]{R.id.txt_id, R.id.txt_name_mat,R.id.txt_name_ins}
         );
         kelasBinding.listView.setAdapter(adapter);
     }
