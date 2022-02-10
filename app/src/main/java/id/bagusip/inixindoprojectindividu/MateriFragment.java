@@ -53,20 +53,20 @@ public class MateriFragment extends Fragment implements MainActivity.OnBackPress
         ActionBar customActionBar = ((MainActivity) getActivity()).getSupportActionBar();
         customActionBar.setTitle("Data Materi");
 
-        // penanganan List View
-//        materiBinding.listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> parent, View view, int i, long l) {
-//                // membuka detail
-//                Log.d("test","clicked");
-//                Intent myIntent = new Intent(getActivity(), PesertaDetail.class);
-//                HashMap<String, String> map = (HashMap) parent.getItemAtPosition(i);
-//                String id_mat = map.get("id_mat").toString();
-//                myIntent.putExtra(Konfigurasi.PGW_ID, id_mat);
-//                Log.d("test",id_mat);
-//                startActivity(myIntent);
-//            }
-//        });
+//         penanganan List View
+        materiBinding.listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int i, long l) {
+                // membuka detail
+                Log.d("test","clicked");
+                Intent myIntent = new Intent(getActivity(), MateriDetail.class);
+                HashMap<String, String> map = (HashMap) parent.getItemAtPosition(i);
+                String id_mat = map.get("id_mat").toString();
+                myIntent.putExtra(Konfigurasi.PGW_ID, id_mat);
+                Log.d("test",id_mat);
+                startActivity(myIntent);
+            }
+        });
 
         // penanganan FAB
         materiBinding.addFab.setOnClickListener(this);
