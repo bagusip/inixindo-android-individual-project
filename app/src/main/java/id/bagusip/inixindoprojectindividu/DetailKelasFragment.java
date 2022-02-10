@@ -63,9 +63,9 @@ public class DetailKelasFragment extends Fragment implements MainActivity.OnBack
             public void onItemClick(AdapterView<?> parent, View view, int i, long l) {
                 // membuka detail
                 Log.d("test","clicked");
-                Intent myIntent = new Intent(getActivity(), PesertaDetail.class);
+                Intent myIntent = new Intent(getActivity(), DetailKelasDetail.class);
                 HashMap<String, String> map = (HashMap) parent.getItemAtPosition(i);
-                String id_detail_kls = map.get(Konfigurasi.TAG_JSON_ID).toString();
+                String id_detail_kls = map.get("id_detail_kls").toString();
                 myIntent.putExtra(Konfigurasi.PGW_ID, id_detail_kls);
                 Log.d("test",id_detail_kls);
                 startActivity(myIntent);
@@ -90,7 +90,7 @@ public class DetailKelasFragment extends Fragment implements MainActivity.OnBack
             @Override
             protected String doInBackground(Void... voids) {
                 HttpHandler handler = new HttpHandler();
-                String result = handler.sendGetResponse(Konfigurasi.DETAIL_KELAS_URL_GET_ALL);
+                String result = handler.sendGetResponse(Konfigurasi.KELAS_URL_GET_ALL);
                 return result;
             }
 
@@ -104,6 +104,7 @@ public class DetailKelasFragment extends Fragment implements MainActivity.OnBack
 
                 // menampilkan data json kedalam list view
                 displayAllDataDetailKelas();
+
             }
         }
         GetJsonData getJsonData = new GetJsonData();
@@ -120,14 +121,16 @@ public class DetailKelasFragment extends Fragment implements MainActivity.OnBack
 
             for (int i = 0; i < jsonArray.length(); i++) {
                 JSONObject object = jsonArray.getJSONObject(i);
-                String id_detail_kls = object.getString("id_detail_kls");
-                String id_kls = object.getString("id_kls");
-//                String id_pst = object.getString("id_pst ");
+                String id_kls = object.getString("k.id_kls");
+                String nama_mat = object.getString("m.nama_mat");
+                String nama_ins = object.getString("i.nama_ins");
+                String id_detail_kls = object.getString("dk.id_detail_kls");
 
                 HashMap<String, String> detailKelas = new HashMap<>();
-                detailKelas.put("id_detail_kls", id_detail_kls);
                 detailKelas.put("id_kls", id_kls);
-//                detailKelas.put("id_pst", id_pst);
+                detailKelas.put("nama_mat", nama_mat);
+                detailKelas.put("nama_ins", nama_ins);
+                detailKelas.put("id_detail_kls",id_detail_kls);
 
                 list.add(detailKelas);
             }
@@ -137,9 +140,9 @@ public class DetailKelasFragment extends Fragment implements MainActivity.OnBack
 
         // adapter untuk meletakkan array list kedalam list view
         ListAdapter adapter = new SimpleAdapter(
-                view.getContext(), list, R.layout.activity_list_item,
-                new String[]{"id_detail_kls", "id_kls"},
-                new int[]{R.id.txt_id, R.id.txt_name}
+                view.getContext(), list, R.layout.activity_list_item_kelas,
+                new String[]{"id_kls","nama_mat", "nama_ins"},
+                new int[]{R.id.txt_id, R.id.txt_name_mat,R.id.txt_name_ins}
         );
         detailKelasBinding.listView.setAdapter(adapter);
     }
@@ -147,7 +150,7 @@ public class DetailKelasFragment extends Fragment implements MainActivity.OnBack
     @Override
     public void onClick(View v) {
         // penanganan FAB
-        startActivity(new Intent(view.getContext(), TambahPeserta.class));
+        startActivity(new Intent(view.getContext(), DetailKelasDetail.class));
     }
 
     @Override

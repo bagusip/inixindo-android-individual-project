@@ -36,7 +36,7 @@ public class Konfigurasi {
     public static final String DETAIL_KELAS_URL_GET_DETAIL = "http://192.168.1.3/training/detail_kelas/detail_detail_kelas.php?id_detail_kls=";
     public static final String DETAIL_KELAS_URL_GET_ADD = "http://192.168.1.3/training/detail_kelas/add_detail_kelas.php";
     public static final String DETAIL_KELAS_URL_UPDATE = "http://192.168.1.3/training/detail_kelas/update_detail_kelas.php";
-    public static final String DETAIL_KELAS_URL_DELETE =    "\"http://192.168.1.3/training/detail_kelas/delete_detail_kelas.php?id_detail_kls=";
+    public static final String DETAIL_KELAS_URL_DELETE =  "http://192.168.1.3/training/detail_kelas/delete_detail_kelas.php?id_detail_kls=";
 
     // key adn value JSON yang muncul di browser
     public static final String KEY_PGW_ID = "id";

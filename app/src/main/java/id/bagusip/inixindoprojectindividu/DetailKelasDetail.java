@@ -21,42 +21,34 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 
-public class PesertaDetail extends AppCompatActivity implements View.OnClickListener{
+public class DetailKelasDetail extends AppCompatActivity  implements View.OnClickListener {
 
-    EditText edit_id_pst, edit_nama_pst, edit_email_pst, edit_hp_pst, edit_instansi_pst;
-    Button btn_update_peserta, btn_delete_peserta;
-    String id_pst;
+    EditText edit_id_detail_kls, edit_id_kls, edit_id_pst;
+    Button btn_update_detail_kelas, btn_delete_detail_kelas;
+    String id_detail_kls;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_peserta_detail);
-
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-//        getSupportActionBar().setTitle("Detail Data Peserta");
-
+        setContentView(R.layout.activity_detail_kelas_detail);
+        edit_id_detail_kls = findViewById(R.id.edit_id_detail_kls);
+        edit_id_kls = findViewById(R.id.edit_id_kls);
         edit_id_pst = findViewById(R.id.edit_id_pst);
-        edit_nama_pst = findViewById(R.id.edit_nama_pst);
-        edit_email_pst = findViewById(R.id.edit_email_pst);
-        edit_hp_pst = findViewById(R.id.edit_hp_pst);
-        edit_instansi_pst = findViewById(R.id.edit_instansi_pst);
-        btn_update_peserta = findViewById(R.id.btn_update_peserta);
-        btn_delete_peserta = findViewById(R.id.btn_delete_peserta);
+
+        btn_update_detail_kelas = findViewById(R.id.btn_update_detail_kelas);
+        btn_delete_detail_kelas = findViewById(R.id.btn_delete_detail_kelas);
 
         Intent receiveIntent = getIntent();
-        id_pst = receiveIntent.getStringExtra(Konfigurasi.PGW_ID);
-        edit_id_pst.setText(id_pst);
+        id_detail_kls = receiveIntent.getStringExtra(Konfigurasi.PGW_ID);
+        edit_id_detail_kls.setText(id_detail_kls);
 
         getJSON();
 
-        btn_update_peserta.setOnClickListener(this);
-        btn_delete_peserta.setOnClickListener(this);
-
+        btn_update_detail_kelas.setOnClickListener(this);
+        btn_delete_detail_kelas.setOnClickListener(this);
     }
 
     private void getJSON() {
-        // MENGAMBIL DATA DARI ANDROID KE SERVER
-        // BANTUAN DARI CLASS ASYNCtASK
         class GetJSON extends AsyncTask<Void, Void, String> {
             ProgressDialog loading;
 
@@ -64,7 +56,7 @@ public class PesertaDetail extends AppCompatActivity implements View.OnClickList
             @Override
             protected void onPreExecute() {
                 super.onPreExecute();
-                loading = ProgressDialog.show(PesertaDetail.this,
+                loading = ProgressDialog.show(DetailKelasDetail.this,
                         "Mengambil Data", "Harap Menunggu",
                         false, false);
             }
@@ -73,8 +65,8 @@ public class PesertaDetail extends AppCompatActivity implements View.OnClickList
             @Override
             protected String doInBackground(Void... voids) {
                 HttpHandler handler = new HttpHandler();
-                String result = handler.sendGetResponse(Konfigurasi.PESERTA_URL_GET_DETAIL, id_pst);
-                Log.d("result",result);
+                String result = handler.sendGetResponse(Konfigurasi.DETAIL_KELAS_URL_GET_DETAIL, id_detail_kls);
+                Log.d("result",id_detail_kls);
                 return result;
             }
 
@@ -83,6 +75,7 @@ public class PesertaDetail extends AppCompatActivity implements View.OnClickList
             protected void onPostExecute(String message) {
                 super.onPostExecute(message);
                 loading.dismiss();
+                Toast.makeText(DetailKelasDetail.this, message, Toast.LENGTH_LONG).show();
                 displayDetailData(message);
 
             }
@@ -92,21 +85,20 @@ public class PesertaDetail extends AppCompatActivity implements View.OnClickList
         getJSON.execute();
     }
 
-    private void displayDetailData(String json) {
+    private void displayDetailData(String message) {
         try {
-            JSONObject jsonObject = new JSONObject(json);
+            JSONObject jsonObject = new JSONObject(message);
             JSONArray result = jsonObject.getJSONArray(Konfigurasi.TAG_JSON_ARRAY);
             JSONObject object = result.getJSONObject(0);
 
-            String nama_pst = object.getString("nama_pst");
-            String email_pst = object.getString("email_pst");
-            String hp_pst = object.getString("hp_pst");
-            String instansi_pst = object.getString("instansi_pst");
+            String id_detail_kls = object.getString("id_detail_kls");
+            String id_kls = object.getString("id_kls");
+            String id_pst = object.getString("id_pst");
 
-            edit_nama_pst.setText(nama_pst);
-            edit_email_pst.setText(email_pst);
-            edit_hp_pst.setText(hp_pst);
-            edit_instansi_pst.setText(instansi_pst);
+            edit_id_detail_kls.setText(id_detail_kls);
+            edit_id_kls.setText(id_kls);
+            edit_id_pst.setText(id_pst);
+
         } catch (Exception ex){
             ex.printStackTrace();
         }
@@ -118,18 +110,17 @@ public class PesertaDetail extends AppCompatActivity implements View.OnClickList
         return super.onOptionsItemSelected(item);
     }
 
-
     @Override
     public void onClick(View view) {
-        if (view == btn_update_peserta){
-            updateDataPeserta();
+        if (view == btn_update_detail_kelas){
+            updateDataDetailKelas();
         }
-        else if(view == btn_delete_peserta){
-            confirmDeleteDataPeserta();
+        else if(view == btn_delete_detail_kelas){
+            confirmDeleteDataDetailKelas();
         }
     }
 
-    private void confirmDeleteDataPeserta() {
+    private void confirmDeleteDataDetailKelas() {
         //Confirmation using alert dialog
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Menghapus Data");
@@ -139,7 +130,7 @@ public class PesertaDetail extends AppCompatActivity implements View.OnClickList
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                deleteDataPeserta();
+                deleteDataDetailKelas();
             }
         });
         builder.setNegativeButton("Cancel",null);
@@ -148,24 +139,22 @@ public class PesertaDetail extends AppCompatActivity implements View.OnClickList
     }
 
 
-    private void deleteDataPeserta() {
-        class DeleteDataPeserta extends AsyncTask<Void, Void, String>{
+    private void deleteDataDetailKelas() {
+        class DeleteDataDetailKelas extends AsyncTask<Void, Void, String>{
             ProgressDialog loading;
 
             @Override
             protected void onPreExecute() {
                 super.onPreExecute();
-                loading = ProgressDialog.show(PesertaDetail.this,
+                loading = ProgressDialog.show(DetailKelasDetail.this,
                         "Menghapus data","Harap tunggu",
                         false, false);
             }
 
             @Override
             protected String doInBackground(Void... voids) {
-
                 HttpHandler handler = new HttpHandler();
-                String result = handler.sendGetResponse(Konfigurasi.PESERTA_URL_DELETE, id_pst);
-
+                String result = handler.sendGetResponse(Konfigurasi.DETAIL_KELAS_URL_DELETE, id_detail_kls);
                 return result;
             }
 
@@ -173,47 +162,44 @@ public class PesertaDetail extends AppCompatActivity implements View.OnClickList
             protected void onPostExecute(String s) {
                 super.onPostExecute(s);
                 loading.dismiss();
-                Toast.makeText(PesertaDetail.this,
-                        "pesan: "+s, Toast.LENGTH_SHORT).show();
-
-                Intent myIntent = new Intent(PesertaDetail.this,MainActivity.class);
-                myIntent.putExtra("keyName","peserta");
-                startActivity(myIntent);
+                Toast.makeText(DetailKelasDetail.this,
+                        "pesan: "+s, Toast.LENGTH_LONG).show();
+                //redirect ke lihat data activity
+//                startActivity(new Intent(PesertaDetail.this,PesertaFragment.class));
+                startActivity(new Intent(DetailKelasDetail.this,MainActivity.class));
             }
+
         }
-        DeleteDataPeserta deleteDataPeserta = new DeleteDataPeserta();
-        deleteDataPeserta.execute();
+        DeleteDataDetailKelas deleteDataDetailKelas = new DeleteDataDetailKelas();
+        deleteDataDetailKelas.execute();
     }
 
-    private void updateDataPeserta() {
-        final String nama_pst = edit_nama_pst.getText().toString().trim();
-        final String email_pst = edit_email_pst.getText().toString().trim();
-        final String hp_pst = edit_hp_pst.getText().toString().trim();
-        final String instansi_pst = edit_instansi_pst.getText().toString().trim();
-
-        class UpdateDataPeserta extends AsyncTask<Void, Void, String>{
+    private void updateDataDetailKelas() {
+        final String id_detail_kls = edit_id_detail_kls.getText().toString().trim();
+        final String id_kls = edit_id_kls.getText().toString().trim();
+        final String id_pst = edit_id_pst.getText().toString().trim();
+        class UpdateDataDetailKelas extends AsyncTask<Void, Void, String>{
             ProgressDialog loading;
 
             @Override
             protected void onPreExecute() {
                 super.onPreExecute();
-                loading = ProgressDialog.show(PesertaDetail.this,
+                loading = ProgressDialog.show(DetailKelasDetail.this,
                         "Mengubah Data", "Harap Tunggu",
                         false, false);
             }
 
             @Override
             protected String doInBackground(Void... voids) {
-                HashMap<String, String> peserta = new HashMap<>();
-                peserta.put("id_pst", id_pst);
-                peserta.put("nama_pst", nama_pst);
-                peserta.put("email_pst", email_pst);
-                peserta.put("hp_pst", hp_pst);
-                peserta.put("instansi_pst", instansi_pst);
+                HashMap<String, String> kelas = new HashMap<>();
+                kelas.put("id_detail_kls", id_detail_kls);
+                kelas.put("id_kls", id_kls);
+                kelas.put("id_pst", id_pst);
+
 
                 HttpHandler handler = new HttpHandler();
-                String result = handler.sendPostRequest(Konfigurasi.PESERTA_URL_UPDATE, peserta);
-
+                String result = handler.sendPostRequest(Konfigurasi.DETAIL_KELAS_URL_UPDATE, kelas);
+                Toast.makeText(DetailKelasDetail.this, result, Toast.LENGTH_LONG).show();
                 return result;
             }
 
@@ -221,16 +207,16 @@ public class PesertaDetail extends AppCompatActivity implements View.OnClickList
             protected void onPostExecute(String s) {
                 super.onPostExecute(s);
                 loading.dismiss();
-                Toast.makeText(PesertaDetail.this,
+                Toast.makeText(DetailKelasDetail.this,
                         "pesan: "+s, Toast.LENGTH_SHORT).show();
                 //redirect ke lihat data activity
-                Intent myIntent = new Intent(PesertaDetail.this,MainActivity.class);
+                Intent myIntent = new Intent(DetailKelasDetail.this,MainActivity.class);
                 myIntent.putExtra("keyName","peserta");
                 startActivity(myIntent);
 
             }
         }
-        UpdateDataPeserta updateDataPeserta = new UpdateDataPeserta();
-        updateDataPeserta.execute();
+        UpdateDataDetailKelas updateDataDetailKelas = new UpdateDataDetailKelas();
+        updateDataDetailKelas.execute();
     }
 }
