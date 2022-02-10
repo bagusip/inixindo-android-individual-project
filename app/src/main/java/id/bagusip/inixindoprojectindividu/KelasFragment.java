@@ -145,6 +145,7 @@ public class KelasFragment extends Fragment implements MainActivity.OnBackPresse
 
     @Override
     public void onClick(View view) {
+        startActivity(new Intent(view.getContext(), TambahKelas.class));
     }
 
     @Override
