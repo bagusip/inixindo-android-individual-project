@@ -150,7 +150,7 @@ public class DetailKelasFragment extends Fragment implements MainActivity.OnBack
     @Override
     public void onClick(View v) {
         // penanganan FAB
-        startActivity(new Intent(view.getContext(), DetailKelasDetail.class));
+        startActivity(new Intent(view.getContext(), TambahDetailKelas.class));
     }
 
     @Override

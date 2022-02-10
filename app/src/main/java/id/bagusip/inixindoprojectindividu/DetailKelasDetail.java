@@ -66,7 +66,6 @@ public class DetailKelasDetail extends AppCompatActivity  implements View.OnClic
             protected String doInBackground(Void... voids) {
                 HttpHandler handler = new HttpHandler();
                 String result = handler.sendGetResponse(Konfigurasi.DETAIL_KELAS_URL_GET_DETAIL, id_detail_kls);
-                Log.d("result",id_detail_kls);
                 return result;
             }
 
@@ -175,7 +174,7 @@ public class DetailKelasDetail extends AppCompatActivity  implements View.OnClic
     }
 
     private void updateDataDetailKelas() {
-        final String id_detail_kls = edit_id_detail_kls.getText().toString().trim();
+//        final String id_detail_kls = edit_id_detail_kls.getText().toString().trim();
         final String id_kls = edit_id_kls.getText().toString().trim();
         final String id_pst = edit_id_pst.getText().toString().trim();
         class UpdateDataDetailKelas extends AsyncTask<Void, Void, String>{
@@ -199,7 +198,6 @@ public class DetailKelasDetail extends AppCompatActivity  implements View.OnClic
 
                 HttpHandler handler = new HttpHandler();
                 String result = handler.sendPostRequest(Konfigurasi.DETAIL_KELAS_URL_UPDATE, kelas);
-                Toast.makeText(DetailKelasDetail.this, result, Toast.LENGTH_LONG).show();
                 return result;
             }
 
