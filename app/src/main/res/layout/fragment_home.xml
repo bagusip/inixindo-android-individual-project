@@ -156,7 +156,7 @@
                 android:id="@+id/button_save"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/inix2"
+                android:backgroundTint="@color/inix1"
                 android:text="SIMPAN" />
         </LinearLayout>
 

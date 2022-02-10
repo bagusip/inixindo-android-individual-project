@@ -3,7 +3,7 @@
     <style name="Theme.InixindoProjectIndividu" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/purple_500</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorPrimaryVariant">@color/inix1</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/inix1</item>
@@ -16,9 +16,9 @@
 
     <style name="SimpleDrawerDarkActionBar" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_500</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
-        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorPrimary">@color/inix1</item>
+        <item name="colorPrimaryVariant">@color/inix2</item>
+        <item name="colorOnPrimary">@color/inix3</item>
     </style>
 
 </resources>

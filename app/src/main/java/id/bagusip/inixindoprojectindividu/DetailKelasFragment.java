@@ -90,7 +90,7 @@ public class DetailKelasFragment extends Fragment implements MainActivity.OnBack
             @Override
             protected String doInBackground(Void... voids) {
                 HttpHandler handler = new HttpHandler();
-                String result = handler.sendGetResponse(Konfigurasi.KELAS_URL_GET_ALL);
+                String result = handler.sendGetResponse(Konfigurasi.DETAIL_KELAS_URL_GET_ALL);
                 return result;
             }
 
