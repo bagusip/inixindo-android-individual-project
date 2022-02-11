@@ -9,6 +9,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -28,6 +29,7 @@ public class TambahKelas extends AppCompatActivity implements View.OnClickListen
     EditText edit_tgl_mulai_kls, edit_tgl_akhir_kls, edit_id_ins, edit_id_mat;
     Button btn_tambah_kelas, btn_lihat_kelas;
     Spinner spinner_mat, spinner_ins;
+    int spinner_value, spinner_value2;
     private String JSON_STRING;
 
 
@@ -80,8 +82,10 @@ public class TambahKelas extends AppCompatActivity implements View.OnClickListen
                 JSON_STRING = s;
                 Log.d("Data_JSON", JSON_STRING);
 
-                JSONObject jsonObject = null;
                 ArrayList<String> arrayList = new ArrayList<>();
+                JSONObject jsonObject = null;
+                ArrayList<String> id_list = new ArrayList<>();
+                ArrayList<String> nama_list = new ArrayList<>();
 
                 try {
                     jsonObject = new JSONObject(JSON_STRING);
@@ -94,7 +98,9 @@ public class TambahKelas extends AppCompatActivity implements View.OnClickListen
                         String id = object.getString("id_ins");
                         String name = object.getString("nama_ins");
 
-                        arrayList.add(id);
+                        id_list.add(id);
+                        nama_list.add(name);
+
                         Log.d("DataArr: ", String.valueOf(id));
                     }
 
@@ -102,10 +108,23 @@ public class TambahKelas extends AppCompatActivity implements View.OnClickListen
                     e.printStackTrace();
                 }
 
-                ArrayAdapter<String> adapter = new ArrayAdapter<String>(TambahKelas.this, android.R.layout.simple_spinner_dropdown_item, arrayList);
+                ArrayAdapter<String> adapter = new ArrayAdapter<String>(TambahKelas.this, android.R.layout.simple_spinner_dropdown_item, nama_list);
                 adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
                 spinner_ins.setAdapter(adapter);
+
+                spinner_ins.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                        spinner_value = Integer.parseInt(id_list.get(i));
+                    }
+
+                    @Override
+                    public void onNothingSelected(AdapterView<?> adapterView) {
+
+                    }
+                });
+
                 //slct_spin = p_comp.getSelectedItem().toString();
                 Log.d("spin", String.valueOf(arrayList));
             }
@@ -138,9 +157,11 @@ public class TambahKelas extends AppCompatActivity implements View.OnClickListen
                 progressDialog.dismiss();
 
                 JSON_STRING = s;
+                JSONObject jsonObject = null;
+                ArrayList<String> id_list = new ArrayList<>();
+                ArrayList<String> nama_list = new ArrayList<>();
                 Log.d("Data_JSON", JSON_STRING);
 
-                JSONObject jsonObject = null;
                 ArrayList<String> arrayList = new ArrayList<>();
 
                 try {
@@ -154,7 +175,8 @@ public class TambahKelas extends AppCompatActivity implements View.OnClickListen
                         String id = object.getString("id_mat");
                         String name = object.getString("nama_mat");
 
-                        arrayList.add(id);
+                        id_list.add(id);
+                        nama_list.add(name);
                         Log.d("DataArr: ", String.valueOf(id));
                     }
 
@@ -162,10 +184,22 @@ public class TambahKelas extends AppCompatActivity implements View.OnClickListen
                     e.printStackTrace();
                 }
 
-                ArrayAdapter<String> adapter = new ArrayAdapter<String>(TambahKelas.this, android.R.layout.simple_spinner_dropdown_item, arrayList);
+                ArrayAdapter<String> adapter = new ArrayAdapter<String>(TambahKelas.this, android.R.layout.simple_spinner_dropdown_item, nama_list);
                 adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
                 spinner_mat.setAdapter(adapter);
+
+                spinner_mat.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                        spinner_value2 = Integer.parseInt(id_list.get(i));
+                    }
+
+                    @Override
+                    public void onNothingSelected(AdapterView<?> adapterView) {
+
+                    }
+                });
+
                 //slct_spin = p_comp.getSelectedItem().toString();
                 Log.d("spin", String.valueOf(arrayList));
             }
@@ -194,8 +228,8 @@ public class TambahKelas extends AppCompatActivity implements View.OnClickListen
     private void simpanDataKelas() {
         final String tgl_mulai_kls = edit_tgl_mulai_kls.getText().toString().trim();
         final String tgl_akhir_kls = edit_tgl_akhir_kls.getText().toString().trim();
-        final String id_ins = spinner_ins.getSelectedItem().toString().trim();
-        final String id_mat = spinner_mat.getSelectedItem().toString().trim();
+        final String id_ins = String.valueOf(spinner_value);
+        final String id_mat = String.valueOf(spinner_value2);
 
         class SimpanDataKelas extends AsyncTask<Void, Void, String> {
             ProgressDialog loading;
