@@ -6,7 +6,7 @@
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="180dp"
-        android:background="@drawable/inix_gradient"
+        android:background="@color/inix1"
         android:gravity="center"
         android:orientation="vertical">
 
