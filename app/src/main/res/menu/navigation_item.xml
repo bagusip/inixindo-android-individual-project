@@ -31,6 +31,11 @@
             android:id="@+id/nav_detail_kelas"
             android:icon="@drawable/detail_kelas"
             android:title="Detail Kelas" />
+
+        <item
+            android:id="@+id/nav_search_data"
+            android:icon="@drawable/search"
+            android:title="Search Data" />
     </group>
 
 </menu>

@@ -167,6 +167,12 @@ public class MainActivity extends AppCompatActivity {
                         binding.drawer.closeDrawer(GravityCompat.START);
                         callFragment(fragment);
                         break;
+                    case R.id.nav_search_data:
+                        fragment = new SearchDataFragment();
+                        getSupportActionBar().setTitle("Search Data");
+                        binding.drawer.closeDrawer(GravityCompat.START);
+                        callFragment(fragment);
+                        break;
                 }
                 return true;
             }
