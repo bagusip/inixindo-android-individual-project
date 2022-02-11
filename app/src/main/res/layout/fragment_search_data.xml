@@ -8,6 +8,13 @@
     android:paddingTop="100dp"
     tools:context=".HomeFragment">
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:src="@drawable/profile_picture" />
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
