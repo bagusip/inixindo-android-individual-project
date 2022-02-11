@@ -229,7 +229,7 @@ public class TambahKelas extends AppCompatActivity implements View.OnClickListen
                 Toast.makeText(TambahKelas.this, "pesan:" + s,
                         Toast.LENGTH_SHORT).show();
                 // method untuk clear setelah data ditambah di form
-                clearText();
+//                clearText();
             }
         }
         SimpanDataKelas simpanDataKelas = new SimpanDataKelas();
