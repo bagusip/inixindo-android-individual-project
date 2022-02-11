@@ -164,8 +164,9 @@ public class DetailKelasDetail extends AppCompatActivity  implements View.OnClic
                 Toast.makeText(DetailKelasDetail.this,
                         "pesan: "+s, Toast.LENGTH_LONG).show();
                 //redirect ke lihat data activity
-//                startActivity(new Intent(PesertaDetail.this,PesertaFragment.class));
-                startActivity(new Intent(DetailKelasDetail.this,MainActivity.class));
+                Intent myIntent = new Intent(DetailKelasDetail.this, MainActivity.class);
+                myIntent.putExtra("keyName", "detail_kelas");
+                startActivity(myIntent);
             }
 
         }
@@ -208,10 +209,9 @@ public class DetailKelasDetail extends AppCompatActivity  implements View.OnClic
                 Toast.makeText(DetailKelasDetail.this,
                         "pesan: "+s, Toast.LENGTH_SHORT).show();
                 //redirect ke lihat data activity
-                Intent myIntent = new Intent(DetailKelasDetail.this,MainActivity.class);
-                myIntent.putExtra("keyName","peserta");
+                Intent myIntent = new Intent(DetailKelasDetail.this, MainActivity.class);
+                myIntent.putExtra("keyName", "detail_kelas");
                 startActivity(myIntent);
-
             }
         }
         UpdateDataDetailKelas updateDataDetailKelas = new UpdateDataDetailKelas();

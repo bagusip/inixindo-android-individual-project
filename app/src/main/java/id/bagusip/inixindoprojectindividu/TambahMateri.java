@@ -15,7 +15,7 @@ import java.util.HashMap;
 
 public class TambahMateri extends AppCompatActivity implements View.OnClickListener{
     EditText edit_nama_mat;
-    Button btn_tambah_materi, btn_lihat_peserta;
+    Button btn_tambah_materi, btn_lihat_materi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,10 +25,10 @@ public class TambahMateri extends AppCompatActivity implements View.OnClickListe
         edit_nama_mat = findViewById(R.id.edit_nama_mat);
 
         btn_tambah_materi = findViewById(R.id.btn_tambah_materi);
-        btn_lihat_peserta = findViewById(R.id.btn_lihat_materi);
+        btn_lihat_materi = findViewById(R.id.btn_lihat_materi);
 
         btn_tambah_materi.setOnClickListener(this);
-        btn_lihat_peserta.setOnClickListener(this);
+        btn_lihat_materi.setOnClickListener(this);
     }
 
     @Override
@@ -36,10 +36,15 @@ public class TambahMateri extends AppCompatActivity implements View.OnClickListe
         switch (view.getId()) {
             case R.id.btn_tambah_materi:
                 simpanDataMateri();
-                startActivity(new Intent(TambahMateri.this, MainActivity.class));
+                Intent myIntent = new Intent(TambahMateri.this, MainActivity.class);
+                myIntent.putExtra("keyName", "materi");
+                startActivity(myIntent);
                 break;
-            case R.id.btn_lihat_peserta:
+            case R.id.btn_lihat_materi:
                 startActivity(new Intent(TambahMateri.this, MainActivity.class));
+                Intent i = new Intent(TambahMateri.this, MainActivity.class);
+                i.putExtra("keyName", "materi");
+                startActivity(i);
                 break;
         }
     }

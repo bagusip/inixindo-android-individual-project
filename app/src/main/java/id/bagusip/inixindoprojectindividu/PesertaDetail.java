@@ -224,8 +224,8 @@ public class PesertaDetail extends AppCompatActivity implements View.OnClickList
                 Toast.makeText(PesertaDetail.this,
                         "pesan: "+s, Toast.LENGTH_SHORT).show();
                 //redirect ke lihat data activity
-                Intent myIntent = new Intent(PesertaDetail.this,MainActivity.class);
-                myIntent.putExtra("keyName","peserta");
+                Intent myIntent = new Intent(PesertaDetail.this, MainActivity.class);
+                myIntent.putExtra("keyName", "peserta");
                 startActivity(myIntent);
 
             }

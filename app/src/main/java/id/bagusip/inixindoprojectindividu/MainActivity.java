@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
     private ActionBarDrawerToggle toggle;
     private OnBackPressedListener onBackPressedListener;
 
-    String myStr;
+
     Toolbar toolbar;
 
     @Override
@@ -41,21 +41,67 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initView() {
+        String myStr = null;
         // custom toolbar
         setSupportActionBar(binding.toolbar);
-        Fragment fragment = null;
+
+        //set menu
         Intent intent = getIntent();
         Bundle extras = intent.getExtras();
+        Fragment fragment = null;
         myStr = "home";
-        if(extras != null){
-            myStr = extras.getString("KeyName");
-        }
-        else {
-            myStr = "home";
-        }
+
+        if(extras != null)
+            if(extras != null){
+                myStr = extras.getString("keyName");
+            } else {
+                myStr = "home";
+            }
+
+        Toast.makeText(this, myStr, Toast.LENGTH_SHORT).show();
 
         switch (myStr){
-            case "home":
+            case "peserta":
+                fragment = new PesertaFragment();
+                getSupportActionBar().setTitle("Peserta");
+                binding.drawer.closeDrawer(GravityCompat.START);
+                callFragment(fragment);
+                Toast.makeText(this, myStr, Toast.LENGTH_SHORT).show();
+                break;
+
+            case "instruktur":
+                fragment = new InstrukturFragment();
+                getSupportActionBar().setTitle("Instruktur");
+                binding.drawer.closeDrawer(GravityCompat.START);
+                callFragment(fragment);
+                Toast.makeText(this, myStr, Toast.LENGTH_SHORT).show();
+                break;
+
+            case "materi":
+                fragment = new MateriFragment();
+                getSupportActionBar().setTitle("Materi");
+                binding.drawer.closeDrawer(GravityCompat.START);
+                callFragment(fragment);
+                Toast.makeText(this, myStr, Toast.LENGTH_SHORT).show();
+                break;
+
+            case "kelas":
+                fragment = new KelasFragment();
+                getSupportActionBar().setTitle("Kelas");
+                binding.drawer.closeDrawer(GravityCompat.START);
+                callFragment(fragment);
+                Toast.makeText(this, myStr, Toast.LENGTH_SHORT).show();
+                break;
+
+            case "detail_kelas":
+                fragment = new DetailKelasFragment();
+                getSupportActionBar().setTitle("Detail Kelas");
+                binding.drawer.closeDrawer(GravityCompat.START);
+                callFragment(fragment);
+                Toast.makeText(this, myStr, Toast.LENGTH_SHORT).show();
+                break;
+
+            default:
                 //default fragment dibuka pertama kali
                 getSupportActionBar().setTitle("Home");
                 getSupportFragmentManager()
@@ -63,13 +109,6 @@ public class MainActivity extends AppCompatActivity {
                         .replace(R.id.frame_layout, new HomeFragment())
                         .commit();
                 binding.navView.setCheckedItem(R.id.nav_home);
-                Toast.makeText(this, myStr, Toast.LENGTH_SHORT).show();
-                break;
-            case "peserta":
-                fragment = new PesertaFragment();
-                getSupportActionBar().setTitle("Peserta");
-                binding.drawer.closeDrawer(GravityCompat.START);
-                callFragment(fragment);
                 Toast.makeText(this, myStr, Toast.LENGTH_SHORT).show();
                 break;
         }

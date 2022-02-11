@@ -150,7 +150,9 @@ public class InstrukturDetail extends AppCompatActivity implements View.OnClickL
                         "pesan: "+s, Toast.LENGTH_LONG).show();
                 //redirect ke lihat data activity
 //                startActivity(new Intent(PesertaDetail.this,PesertaFragment.class));
-                startActivity(new Intent(InstrukturDetail.this,MainActivity.class));
+                Intent myIntent = new Intent(InstrukturDetail.this, MainActivity.class);
+                myIntent.putExtra("keyName", "instruktur");
+                startActivity(myIntent);
             }
 
         }
@@ -197,7 +199,9 @@ public class InstrukturDetail extends AppCompatActivity implements View.OnClickL
                     Toast.makeText(InstrukturDetail.this,
                             "pesan: "+s, Toast.LENGTH_SHORT).show();
                     //redirect ke lihat data activity
-                    startActivity(new Intent(InstrukturDetail.this,MainActivity.class));
+                    Intent myIntent = new Intent(InstrukturDetail.this, MainActivity.class);
+                    myIntent.putExtra("keyName", "instruktur");
+                    startActivity(myIntent);
                 }
             }
             UpdateDataInstruktur updateDataInstruktur = new UpdateDataInstruktur();

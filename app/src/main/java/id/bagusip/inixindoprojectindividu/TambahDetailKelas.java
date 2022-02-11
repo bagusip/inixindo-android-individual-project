@@ -38,10 +38,14 @@ public class TambahDetailKelas extends AppCompatActivity implements View.OnClick
         switch (view.getId()) {
             case R.id.btn_tambah_detail_kelas:
                 simpanDataDetailKelas();
-                startActivity(new Intent(TambahDetailKelas.this, MainActivity.class));
+                Intent myIntent = new Intent(TambahDetailKelas.this, MainActivity.class);
+                myIntent.putExtra("keyName", "detail_kelas");
+                startActivity(myIntent);
                 break;
             case R.id.btn_lihat_detail_kelas:
-                startActivity(new Intent(TambahDetailKelas.this, MainActivity.class));
+                Intent i = new Intent(TambahDetailKelas.this, MainActivity.class);
+                i.putExtra("keyName", "detail_kelas");
+                startActivity(i);
                 break;
         }
     }

@@ -169,7 +169,9 @@ public class KelasDetail extends AppCompatActivity implements View.OnClickListen
                 Toast.makeText(KelasDetail.this,
                         "pesan: "+s, Toast.LENGTH_LONG).show();
 
-                startActivity(new Intent(KelasDetail.this,MainActivity.class));
+                Intent myIntent = new Intent(KelasDetail.this, MainActivity.class);
+                myIntent.putExtra("keyName", "kelas");
+                startActivity(myIntent);
 
             }
         }
@@ -216,7 +218,9 @@ public class KelasDetail extends AppCompatActivity implements View.OnClickListen
                 Toast.makeText(KelasDetail.this,
                         "pesan: "+s, Toast.LENGTH_SHORT).show();
                 //redirect ke lihat data activity
-                startActivity(new Intent(KelasDetail.this,MainActivity.class));
+                Intent myIntent = new Intent(KelasDetail.this, MainActivity.class);
+                myIntent.putExtra("keyName", "kelas");
+                startActivity(myIntent);
             }
         }
         UpdateDataKelas updateDataKelas = new UpdateDataKelas();

@@ -47,11 +47,15 @@ public class TambahPeserta extends AppCompatActivity implements View.OnClickList
         switch (view.getId()) {
             case R.id.btn_tambah_peserta:
                 simpanDataPeserta();
-                startActivity(new Intent(TambahPeserta.this, MainActivity.class));
+                Intent myIntent = new Intent(TambahPeserta.this, MainActivity.class);
+                myIntent.putExtra("keyName", "peserta");
+                startActivity(myIntent);
                 break;
             case R.id.btn_lihat_peserta:
                 fragment = new PesertaFragment();
-                startActivity(new Intent(TambahPeserta.this, MainActivity.class));
+                Intent i = new Intent(TambahPeserta.this, MainActivity.class);
+                i.putExtra("keyName", "peserta");
+                startActivity(i);
                 break;
     }
 }

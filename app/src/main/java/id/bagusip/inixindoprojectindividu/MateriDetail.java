@@ -163,8 +163,9 @@ public class MateriDetail extends AppCompatActivity implements View.OnClickListe
                 Toast.makeText(MateriDetail.this,
                         "pesan: "+s, Toast.LENGTH_SHORT).show();
                 //redirect ke lihat data activity
-//                startActivity(new Intent(PesertaDetail.this,PesertaFragment.class));
-                startActivity(new Intent(MateriDetail.this,MainActivity.class));
+                Intent myIntent = new Intent(MateriDetail.this, MainActivity.class);
+                myIntent.putExtra("keyName", "materi");
+                startActivity(myIntent);
 
             }
         }
@@ -205,7 +206,9 @@ public class MateriDetail extends AppCompatActivity implements View.OnClickListe
                 Toast.makeText(MateriDetail.this,
                         "pesan: "+s, Toast.LENGTH_SHORT).show();
                 //redirect ke lihat data activity
-                startActivity(new Intent(MateriDetail.this,MainActivity.class));
+                Intent myIntent = new Intent(MateriDetail.this, MainActivity.class);
+                myIntent.putExtra("keyName", "materi");
+                startActivity(myIntent);
             }
         }
         UpdateDataMateri updateDataMateri = new UpdateDataMateri();

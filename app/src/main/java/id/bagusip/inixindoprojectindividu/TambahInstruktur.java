@@ -39,10 +39,14 @@ public class TambahInstruktur extends AppCompatActivity implements View.OnClickL
         switch (view.getId()) {
             case R.id.btn_tambah_instruktur:
                 simpanDataInstruktur();
-                startActivity(new Intent(TambahInstruktur.this, MainActivity.class));
+                Intent myIntent = new Intent(TambahInstruktur.this, MainActivity.class);
+                myIntent.putExtra("keyName", "instruktur");
+                startActivity(myIntent);
                 break;
             case R.id.btn_lihat_instruktur:
-                startActivity(new Intent(TambahInstruktur.this, MainActivity.class));
+                Intent i = new Intent(TambahInstruktur.this, MainActivity.class);
+                i.putExtra("keyName", "instruktur");
+                startActivity(i);
                 break;
         }
     }
