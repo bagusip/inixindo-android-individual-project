@@ -10,9 +10,11 @@
 
     <ImageView
         android:id="@+id/imageView5"
-        android:layout_width="match_parent"
-        android:layout_height="180dp"
-        android:src="@drawable/header_home" />
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:paddingTop="40dp"
+        android:src="@drawable/profile_picture" />
 
     <TextView
         android:id="@+id/textView"

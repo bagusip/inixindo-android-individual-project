@@ -40,6 +40,8 @@ public class Konfigurasi {
 
     //SEARCH DATA
     public static final String SEARCH_URL_COUNT_PESERTA =  "http://192.168.1.3/training/search_data/count_peserta_kelas.php?id_kls=";
+    public static final String SEARCH_URL_KELAS_PESERTA = "http://192.168.1.3/training/search_data/search_kelas_peserta.php?id_pst=";
+    public static final String SEARCH_URL_KELAS_BULAN = "http://192.168.1.3/training/search_data/search_kelas_bulan.php?month=";
 
     // key adn value JSON yang muncul di browser
     public static final String KEY_PGW_ID = "id";

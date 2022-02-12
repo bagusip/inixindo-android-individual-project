@@ -18,22 +18,33 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
             android:layout_weight="1"
-            android:text="ID Kelas:"
+            android:text="Nama Peserta:"
             android:textAlignment="textStart"
             android:textColor="@color/black"
-            android:textSize="14sp"
+            android:textSize="10sp"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/textView10"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
             android:layout_weight="1"
-            android:text="Nama Kelas"
+            android:text="Nama Materi:"
             android:textAlignment="textStart"
             android:textColor="@color/black"
-            android:textSize="14sp"
+            android:textSize="10sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_weight="1"
+            android:text="Nama Instruktur:"
+            android:textAlignment="textStart"
+            android:textColor="@color/black"
+            android:textSize="10sp"
             android:textStyle="bold" />
 
         <TextView
@@ -44,7 +55,7 @@
             android:text="Tgl Mulai:"
             android:textAlignment="textStart"
             android:textColor="@color/black"
-            android:textSize="14sp"
+            android:textSize="10sp"
             android:textStyle="bold" />
 
         <TextView
@@ -52,21 +63,10 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
             android:layout_weight="1"
-            android:text="Tgl Selesai"
+            android:text="Tgl Selesai:"
             android:textAlignment="textStart"
             android:textColor="@color/black"
-            android:textSize="14sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_weight="1"
-            android:text="Jumlah Peserta"
-            android:textAlignment="textStart"
-            android:textColor="@color/black"
-            android:textSize="14sp"
+            android:textSize="10sp"
             android:textStyle="bold" />
     </LinearLayout>
 
@@ -85,43 +85,7 @@
             android:text="TextView"
             android:textAlignment="textStart"
             android:textColor="@color/black"
-            android:textSize="14sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/txt_nama_kls"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_weight="1"
-            android:text="TextView"
-            android:textAlignment="textStart"
-            android:textColor="@color/black"
-            android:textSize="14sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/txt_tgl_mulai_kls"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_weight="1"
-            android:text="TextView"
-            android:textAlignment="textStart"
-            android:textColor="@color/black"
-            android:textSize="14sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/txt_tgl_akhir_kls"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_weight="1"
-            android:text="TextView"
-            android:textAlignment="textStart"
-            android:textColor="@color/black"
-            android:textSize="14sp"
+            android:textSize="10sp"
             android:textStyle="bold" />
 
         <TextView
@@ -133,9 +97,44 @@
             android:text="TextView"
             android:textAlignment="textStart"
             android:textColor="@color/black"
-            android:textSize="14sp"
+            android:textSize="10sp"
             android:textStyle="bold" />
 
+        <TextView
+            android:id="@+id/txt_nama_ins"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_weight="1"
+            android:text="TextView"
+            android:textAlignment="textStart"
+            android:textColor="@color/black"
+            android:textSize="10sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txt_tgl_mulai_kls"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_weight="1"
+            android:text="TextView"
+            android:textAlignment="textStart"
+            android:textColor="@color/black"
+            android:textSize="10sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txt_tgl_akhir_kls"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_weight="1"
+            android:text="TextView"
+            android:textAlignment="textStart"
+            android:textColor="@color/black"
+            android:textSize="10sp"
+            android:textStyle="bold" />
     </LinearLayout>
 
 </LinearLayout>
