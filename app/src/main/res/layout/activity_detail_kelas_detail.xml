@@ -105,7 +105,7 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="6dp"
             android:layout_weight="1"
-            android:text="UPDATE INSTRUKTUR"
+            android:text="UPDATE DETAIL KELAS"
             android:background="@android:color/transparent"
             android:textColor="@color/inix1"/>
 
@@ -115,7 +115,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="6dp"
             android:layout_weight="1"
-            android:text="DELETE INSTRUKTUR"
+            android:text="DELETE DETAIL KELAS"
             android:background="@android:color/transparent"
             android:textColor="@color/inix3"
             />
