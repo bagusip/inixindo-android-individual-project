@@ -83,7 +83,7 @@
             android:layout_marginRight="6dp"
             android:layout_weight="1"
             android:background="@android:color/transparent"
-            android:text="Simpan Data"
+            android:text="UPDATE MATERI"
             android:textColor="@color/inix1"
             android:textSize="18sp"
             android:textStyle="bold" />
@@ -94,7 +94,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="6dp"
             android:layout_weight="1"
-            android:text="Hapus data"
+            android:text="HAPUS MATERI"
             android:background="@android:color/transparent"
             android:textColor="@color/inix3"
             android:textSize="18sp"
