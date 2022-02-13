@@ -6,7 +6,7 @@
 	require_once('../koneksi.php');
 	
 	//Membuat SQL Query
-	$sql = "SELECT m.nama_mat, i.nama_ins, k.tgl_mulai_kls, k.tgl_akhir_kls 
+	$sql = "SELECT DISTINCT m.nama_mat, i.nama_ins, k.tgl_mulai_kls, k.tgl_akhir_kls
 			FROM tb_kelas k
 			JOIN tb_instruktur i ON (k.id_ins = i.id_ins)
 			JOIN tb_materi m ON (k.id_mat = m.id_mat)
