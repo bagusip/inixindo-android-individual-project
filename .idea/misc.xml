@@ -13,6 +13,7 @@
         <entry key="..\:/Users/User/Documents/android-maybank/InixindoProjectIndividu/app/src/main/res/layout/activity_kelas_detail.xml" value="0.29322916666666665" />
         <entry key="..\:/Users/User/Documents/android-maybank/InixindoProjectIndividu/app/src/main/res/layout/activity_list_item.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/User/Documents/android-maybank/InixindoProjectIndividu/app/src/main/res/layout/activity_list_item_kelas.xml" value="0.29322916666666665" />
+        <entry key="..\:/Users/User/Documents/android-maybank/InixindoProjectIndividu/app/src/main/res/layout/activity_list_item_kelas_detail.xml" value="0.4" />
         <entry key="..\:/Users/User/Documents/android-maybank/InixindoProjectIndividu/app/src/main/res/layout/activity_list_item_materi.xml" value="0.8" />
         <entry key="..\:/Users/User/Documents/android-maybank/InixindoProjectIndividu/app/src/main/res/layout/activity_list_item_result_search.xml" value="0.34264884568651277" />
         <entry key="..\:/Users/User/Documents/android-maybank/InixindoProjectIndividu/app/src/main/res/layout/activity_list_item_result_search_2.xml" value="0.1796875" />
@@ -34,6 +35,7 @@
         <entry key="..\:/Users/User/Documents/android-maybank/InixindoProjectIndividu/app/src/main/res/layout/fragment_peserta.xml" value="0.2140625" />
         <entry key="..\:/Users/User/Documents/android-maybank/InixindoProjectIndividu/app/src/main/res/layout/fragment_search_data.xml" value="0.29322916666666665" />
         <entry key="..\:/Users/User/Documents/android-maybank/InixindoProjectIndividu/app/src/main/res/layout/nav_header_layout.xml" value="0.1734375" />
+        <entry key="..\:/Users/User/Documents/android-maybank/InixindoProjectIndividu/app/src/main/res/layout/toolbar.xml" value="0.16354166666666667" />
         <entry key="..\:/Users/User/Documents/android-maybank/InixindoProjectIndividu/app/src/main/res/menu/navigation_item.xml" value="0.29322916666666665" />
       </map>
     </option>

@@ -125,12 +125,14 @@ public class DetailKelasFragment extends Fragment implements MainActivity.OnBack
                 String nama_mat = object.getString("m.nama_mat");
                 String nama_ins = object.getString("i.nama_ins");
                 String id_detail_kls = object.getString("dk.id_detail_kls");
+                String nama_pst = object.getString("p.nama_pst");
 
                 HashMap<String, String> detailKelas = new HashMap<>();
                 detailKelas.put("id_kls", id_kls);
                 detailKelas.put("nama_mat", nama_mat);
                 detailKelas.put("nama_ins", nama_ins);
                 detailKelas.put("id_detail_kls",id_detail_kls);
+                detailKelas.put("nama_pst",nama_pst);
 
                 list.add(detailKelas);
             }
@@ -140,9 +142,9 @@ public class DetailKelasFragment extends Fragment implements MainActivity.OnBack
 
         // adapter untuk meletakkan array list kedalam list view
         ListAdapter adapter = new SimpleAdapter(
-                view.getContext(), list, R.layout.activity_list_item_kelas,
-                new String[]{"id_detail_kls","nama_mat", "nama_ins"},
-                new int[]{R.id.txt_id, R.id.txt_name_mat,R.id.txt_name_ins}
+                view.getContext(), list, R.layout.activity_list_item_kelas_detail,
+                new String[]{"id_detail_kls","nama_mat", "nama_ins","nama_pst"},
+                new int[]{R.id.txt_id, R.id.txt_name_mat,R.id.txt_name_ins,R.id.txt_name_pst}
         );
         detailKelasBinding.listView.setAdapter(adapter);
     }

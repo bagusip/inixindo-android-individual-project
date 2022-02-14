@@ -138,7 +138,7 @@ public class KelasFragment extends Fragment implements MainActivity.OnBackPresse
         ListAdapter adapter = new SimpleAdapter(
                 view.getContext(), list, R.layout.activity_list_item_kelas,
                 new String[]{"id_kls","nama_mat", "nama_ins"},
-                new int[]{R.id.txt_id, R.id.txt_name_mat,R.id.txt_name_ins}
+                new int[]{R.id.txt_id, R.id.txt_name_mat,R.id.txt_name_pst}
         );
         kelasBinding.listView.setAdapter(adapter);
     }
